@@ -7,6 +7,7 @@ public class InvoiceBean {
     private String subject;
     private Date dateFrom;
     private Date dateTo;
+    private double importe;
 
     public Date getDateFrom() {
         return dateFrom;
@@ -30,5 +31,11 @@ public class InvoiceBean {
 
     public void setSubject(String subject) {
         this.subject = subject;
+    }
+    public double getImporte() {
+        return importe;
+    }
+    public void setImporte(double importe) {
+        this.importe = importe;
     }
 }

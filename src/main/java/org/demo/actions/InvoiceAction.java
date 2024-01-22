@@ -25,5 +25,19 @@ public class InvoiceAction extends ActionSupport  {
         if (invoiceBean.getSubject().isEmpty()) {
             addFieldError("invoiceBean.subject", "El concepto es obligatorio.");
         }
+        if(invoiceBean.getDateFrom() == null) {
+            addFieldError("invoiceBean.dateFrom", "Por favor, introduce una fecha desde.");
+        }
+        if(invoiceBean.getDateTo() == null) {
+            addFieldError("invoiceBean.dateTo", "Por favor, introduce una fecha hasta.");
+        }
+        if(invoiceBean.getDateTo() != null) {
+            if (invoiceBean.getDateTo().before(invoiceBean.getDateFrom())) {
+                addFieldError("invoiceBean.dateTo", "La fecha hasta debe ser superior o igual a la fecha desde.");
+            }
+        }
+        if(invoiceBean.getImporte() <= 0) {
+            addFieldError("invoiceBean.importe", "Por favor, introduce un importe válido.");
+        }
     }
 }
